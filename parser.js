@@ -37,7 +37,7 @@ $(function ()
         {
             var f = $('#country').val();
             VK.Api.call('database.getCities', {
-                'country_id' : f, 'q' : d.term, 'v' : '5.28', 'count' : 1000
+                'country_id' : f, 'q' : d.term, 'v' : '5.65', 'count' : 1000
             },
             function (c)
             {
@@ -88,7 +88,7 @@ function getPostInvolved(f)
         resultName = 'post_' + c[2] + '_' + c[3] + '.csv';
         resultLegend = 'Лайки поста (' + c[2] + '_' + c[3] + ')';
         var d = {
-            type : c[1], owner_id : c[2], item_id : c[3], filter : filter, offset : 0, v : '5.28'
+            type : c[1], owner_id : c[2], item_id : c[3], filter : filter, offset : 0, v : '5.65'
         };
         scheduler.addJob(getPostLikes, d);
         scheduler.onDone = function ()
@@ -191,7 +191,7 @@ function getGroupPostsLikes(d, f)
     var g = this.jobID;
     console.log("Running job (Likes). Gid:" + d + ' off:' + f);
     var h = {
-        groups : d, offset : f, now : nowDays, v : '5.28'
+        groups : d, offset : f, now : nowDays, v : '5.65'
     };
     VK.Api.call('execute.grpLikesExt', h, function (c)
     {
@@ -218,7 +218,7 @@ function getGroupPostsLikes(d, f)
                 var a = e;
                 var b = {
                     type : "post", owner_id : a.owner, item_id : a.postId, filter : "", offset : 1000, 
-                    v : '5.28'
+                    v : '5.65'
                 };
                 scheduler.addJob(getPostLikes, b)
             })
@@ -240,7 +240,7 @@ function getGroupPostsComments(b, c)
     var d = this.jobID;
     console.log("Running job (Comments). Gid:" + b + ' off:' + c);
     var e = {
-        groups : b, offset : c, now : nowDays, v : '5.28'
+        groups : b, offset : c, now : nowDays, v : '5.65'
     };
     VK.Api.call('execute.grp_commentsNew', e, function (a)
     {
@@ -293,9 +293,9 @@ function searchGroupsByKeyword(b, c, d)
     for (var g in c) {
         f += ', ' + g + ': ' + c[g]
     }
-    var h = 'return API.groups.search({q: \"' + b + '\" ' + f + ' , v: 5.28}).items@.id;';
+    var h = 'return API.groups.search({q: \"' + b + '\" ' + f + ' , v: 5.65}).items@.id;';
     VK.Api.call('execute', {
-        code : h, v : '5.28'
+        code : h, v : '5.65'
     },
     function (a)
     {
@@ -358,9 +358,9 @@ function getContactsStep2(b)
         scheduler.addJob(getContactsStep2, d)
     }
     var e = this.jobID;
-    var f = 'return API.groups.getById({group_ids: "' + b.join(',') + '", fields: "contacts", v: 5.28})@.contacts;';
+    var f = 'return API.groups.getById({group_ids: "' + b.join(',') + '", fields: "contacts", v: 5.65})@.contacts;';
     VK.Api.call('execute', {
-        code : f, v : '5.28'
+        code : f, v : '5.65'
     },
     function (a)
     {
@@ -415,7 +415,7 @@ function getPersonFriends(f)
         resultName = 'friends_' + d.join('_') + '.csv';
         resultLegend = 'Друзья (' + d.join('_') + ')';
         var i = {
-            user_ids : d.join(','), version : 5.28
+            user_ids : d.join(','), version : 5.65
         };
         VK.Api.call('users.get', i, function (b)
         {
@@ -446,7 +446,7 @@ function getFriendsOfID(d, e)
 {
     var f = this.jobID;
     var g = {
-        user_id : d, count : 5000, offset : e, fields : 'city', version : 5.28
+        user_id : d, count : 5000, offset : e, fields : 'city', version : 5.65
     };
     VK.Api.call('friends.get', g, function (b)
     {
@@ -482,7 +482,7 @@ function getGroupMembers(f)
         resultName = 'groupmembers_' + g.join('_') + '.csv';
         resultLegend = 'Участники групп (' + g.join('_') + ')';
         var h = {
-            group_ids : g.join(','), version : 5.28
+            group_ids : g.join(','), version : 5.65
         };
         VK.Api.call('groups.getById', h, function (b)
         {
@@ -604,9 +604,9 @@ function finishNGroups(N)
 function getGroupIdsFromNames(b, c)
 {
     var d = this;
-    var e = 'return API.groups.getById({group_ids: "' + b.join(',') + '", v: 5.28})@.id;';
+    var e = 'return API.groups.getById({group_ids: "' + b.join(',') + '", v: 5.65})@.id;';
     VK.Api.call('execute', {
-        code : e, v : '5.28'
+        code : e, v : '5.65'
     },
     function (a)
     {
@@ -743,12 +743,7 @@ function jobIsDone()
     if (arrayJobIDs.length == 2) {
         $('#actionButtons').removeClass('hidden');
     }
-    yaParams = {
-        uid : UID, job : resultLegend, count : resultIds.length
-    };
-    if (window.yaCounter28512416) {
-        yaCounter28512416.reachGoal('jobIsDone', yaParams);
-    }
+    
 }
 function displayProgress()
 {
