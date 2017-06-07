@@ -5,7 +5,7 @@ UID = 0;
 $(function ()
 {
     VK.init({
-        apiId : 4738979
+        apiId : 6064179
     });
     VK.Auth.getLoginStatus(function (a)
     {
