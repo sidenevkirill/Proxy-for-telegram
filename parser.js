@@ -728,7 +728,7 @@ function doLogin()
             $('#unauth').hide();
             UID = a.session.mid;
         }
-    }, )
+    }, 262144)
 }
 function jobIsDone()
 {
