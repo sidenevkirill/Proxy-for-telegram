@@ -1,0 +1,28 @@
+.typo {
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer
+}
+
+.hidden {
+    display: none
+}
+
+#login img {
+    border-radius: 4px
+}
+
+#posturl {
+    min-width: 35em
+}
+
+.cityselector {
+    margin-bottom: 1em;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: 5px
+}
+
+#cities span:before {
+    content: "-- "
+}
