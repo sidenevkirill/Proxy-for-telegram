@@ -1,5 +1,3 @@
-# weissart.github.io
-Parser for VK
+# Proxy-for-telegram
 
-Parsing VK for users.
-Output in CSV.
+Прокси скрипт для работы телеграм.
