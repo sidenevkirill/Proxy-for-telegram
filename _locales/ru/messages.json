@@ -1,0 +1,14 @@
+{
+    "description": {
+        "message": "Это расширение позволяет свободно логиниться и пользоваться Telegram на территории Российской Федерации"
+    },
+    "name": {
+        "message": "Telegram Proxy вход"
+    },
+    "shortname": {
+        "message": "Telegram for Proxy"
+    },
+    "title": {
+        "message": "Telegram Proxy вход"
+    }
+}
