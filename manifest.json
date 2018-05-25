@@ -1,0 +1,23 @@
+{
+    "author": "Sidenev Kirill",
+    "background": {
+        "scripts": ["/bg.js"]
+    },
+    "browser_action": {
+        "default_icon": "/128.png"
+    },
+    "description": "Provides access to the website web.telegram.org",
+    "homepage_url": "https://sidenevkirill.github.io/",
+    "icons": {
+        "128": "/128.png",
+        "32": "/32.png",
+        "64": "/64.png"
+    },
+    "default_locale": "ru",
+    "manifest_version": 2,
+    "name": "Proxy for Telegram",
+    "permissions": ["tabs", "storage", "proxy", "webRequest", "webRequestBlocking", "\u003Call_urls>", "http://*/*", "https://*/*"],
+    "short_name": "__SidenevKirill_shortname__",
+    "update_url": "https://clients2.google.com/service/update2/crx",
+    "version": "2018.20.05.1"
+}
