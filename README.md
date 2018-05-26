@@ -53,7 +53,7 @@
 
 **Закрываем доступ для сетей Mail.ru (https://t.me/zatelecom/4773):**
 
-	ufw deny from 5.61.16.0/21
+	ufw deny from nl13.postls.com:443
 	ufw deny from 5.61.232.0/21
 	ufw deny from 79.137.157.0/24
 	ufw deny from 79.137.174.0/23
