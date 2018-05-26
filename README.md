@@ -10,47 +10,6 @@
   uk8.postls.com:443
   uk19.postls.com:443
 
-# Настройка прокси-сервера Dante под Telegram ![Fuck RKN!](https://img.shields.io/badge/Fuck-RKN-brightgreen.svg)
-
-## Ubuntu 16.04
-
-**Обновляем систему и устанавливаем необходимые пакеты:**
-
-	sudo apt-get -y update && apt-get -y upgrade
-	sudo apt-get install -y gcc build-essential libwrap0 libwrap0-dev libpam0g-dev make nano wget tar gzip ufw
-
-**Загружаем и компилируем Dante:**
-
-	cd /opt
-	wget http://www.inet.no/dante/files/dante-1.4.2.tar.gz
-	tar -xvf dante-1.4.2.tar.gz
-	cd dante-1.4.2/
-	mkdir /opt/dante
-	./configure --prefix=/opt/dante
-	make && make install
-	
-**Загружаем конфиг для Telegram:**
-
-	wget -c https://tlgrm.ninja/sockd.conf -O /etc/sockd.conf
-
-**Узнаем сетевой интерфейс и вписываем его в конфиг, в большинстве случаев ничего менять не придется:**
-
-	ifconfig
-	nano /etc/sockd.conf
-
-**Запускаем прокси-сервер:**
-
-	/opt/dante/sbin/sockd -D -f /etc/sockd.conf
-
-**Останавливаем прокси-сервер:**
-
-	/usr/bin/pkill sockd
-	
-**Закрываем на сервере все порты кроме 22 (ssh) и 1080 (прокси):**
-
-	sudo ufw allow 1080/tcp
-	sudo ufw allow 22/tcp
-
 **Закрываем доступ для сетей Mail.ru (https://t.me/zatelecom/4773):**
 
 	ufw deny from nl13.postls.com:443
@@ -79,10 +38,3 @@
 	ufw deny from 217.20.144.0/20
 	ufw deny from 217.69.128.0/20
 	sudo ufw enable
-	
-**Убираемся за собой:**
-
-	rm /opt/dante-1.4.2.tar.gz
-	rm -r /opt/dante-1.4.2/
-
-Прокси-сервер для Telegram запущен и работает на 1080 порту, вы восхитительны!
