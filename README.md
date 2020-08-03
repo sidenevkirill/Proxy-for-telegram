@@ -2,6 +2,8 @@
 
 Прокси скрипт для работы телеграм.
 
+![alt tag](https://baigenews.kz/upload/iblock/811/Zapushchen-Telegram_bot-dlya-proverki-razresheniy-peredvizheniya-po-gorodam-Kazakhstana-_-BaigeNews.kz.png)
+
 **Используемые адреса:**
 
 	ufw deny from nl13.postls.com:443
